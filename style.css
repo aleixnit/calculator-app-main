@@ -190,3 +190,49 @@ button span:not(hover) {
 }
 
 
+/* MEDIA QUERYS *****************************************************/
+@media (max-width: 600px) {
+  /* Estilos para dispositivos móviles */
+  .titulo {
+    font-size: 20px;
+  }
+
+  .results {
+    background-color: #121730;
+    height: 100px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-right: 40px;
+    padding-top: 15px;
+    font-size: 40px;
+    border-radius: 8px;
+  }
+
+  button {
+    width: 4.5em;
+  }
+  
+  button span {
+    width: 2.45em;
+  }
+
+  .keyboard {
+    width: 400px;
+  }
+
+  .toggleTheme {
+    width: 310px;
+    padding: 10px;
+    padding-left: 40px;
+  }
+
+  .reset,
+.equal {
+  width: 100px;
+}
+
+}
