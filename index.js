@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll(".keyboard button");
 const result = document.querySelector("#result");
+const mostrarOperaciones = document.querySelector(".mostrarOperaciones");
 let numero1 = null;
 let numero2 = null;
 let operador = null;
@@ -19,6 +20,7 @@ buttons.forEach((button) => {
         numero2 = null;
         operador = null;
         resetearPantalla = false;
+        mostrarOperaciones.textContent = "";
         // Reiniciar el resultado y limpiar todo
         break;
       case "DEL":
@@ -28,13 +30,15 @@ buttons.forEach((button) => {
       case "=":
         // Realizar el cálculo y mostrar el resultado
         // Si numero1, operador y result estan
-        if (numero1 && operador && result.textContent !== "") {
+        if (numero1 !== null && operador !== null && result.textContent !== "") {
           numero2 = Number(result.textContent);
+          const operacionRealizada = `${numero2}`;
           const resultadoOperacion = calcular(numero1, operador, numero2);
           result.textContent = resultadoOperacion;
-          numero1 = resultadoOperacion;
-          operador = null;
+          mostrarOperaciones.textContent += operacionRealizada + " = ";
+          numero1 = null;
           numero2 = null;
+          operador = null;
           resetearPantalla = true;
         }
         break;
@@ -84,13 +88,19 @@ function calcular(numero1, operador, numero2) {
 }
 
 function operacion(buttonText) {
-  if (numero1 !== null && numero2 !== null) {
-    const resultado = calcular(numero1, operador, numero2);
-    result.textContent = resultado;
-    numero1 = resultado;
-    numero2 = null;
+  if (numero1 === null && result.textContent !== "") {
+    numero1 = Number(result.textContent);
+    operador = buttonText;
+    mostrarOperaciones.textContent = numero1 + " " + operador + " ";
+    result.textContent = "";
+  } else if (numero1 !== null && operador !== null && result.textContent !== "") {
+    numero2 = Number(result.textContent);
+    const operacionRealizada = `${numero1} ${operador} ${numero2}`;
+    const resultadoOperacion = calcular(numero1, operador, numero2);
+    mostrarOperaciones.textContent += operacionRealizada + " " + buttonText + " ";
+    numero1 = resultadoOperacion;
+    operador = buttonText;
+    result.textContent = "";
+    resetearPantalla = true;
   }
-  numero1 = Number(result.textContent);
-  operador = buttonText;
-  result.textContent = "";
 }
