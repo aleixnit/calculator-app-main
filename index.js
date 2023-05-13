@@ -6,6 +6,21 @@ let numero2 = null;
 let operador = null;
 let resetearPantalla = false;
 
+const colorToggle = document.querySelector("#colorToggle");
+const body = document.querySelector("body");
+const display = document.querySelector(".results");
+const keyboard = document.querySelector(".keyboard");
+colorToggle.addEventListener("change", () => {
+  if (colorToggle.checked) {
+    body.classList.add("light-mode");
+    display.classList.add("display-light");
+    keyboard.classList.add("keyboard-light");
+  } else {
+    body.classList.remove("light-mode");
+    display.classList.remove("display-light");
+    keyboard.classList.remove("keyboard-light");
+  }
+});
 //Recorro todos los botones con el metodo 'for Each', para ejecutar la lógica correspondiente cuando se hace 'click' a un botón.
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {

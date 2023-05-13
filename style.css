@@ -19,7 +19,7 @@ body {
   width: 500px;
 }
 
-/* TOGGLE PARA EDITAR EL CAMBIO DE TEMA */
+/* TOGGLE PARA EDITAR EL CAMBIO DE TEMA ***************************************************************/
 .toggleTheme {
   display: flex;
   justify-content: space-between;
@@ -41,7 +41,20 @@ body {
   height: 0;
 }
 
-/* The slider */
+.light-mode {
+  background-color: #ffffff;
+}
+
+.results.display-light {
+  background-color: rgb(143, 143, 143);
+  /* Estilo para el fondo en modo claro */
+}
+
+.keyboard.keyboard-light {
+  background-color: #c3c3c3;
+}
+
+/* The slider ****************************************************/
 .slider {
   --background: #000000;
   position: absolute;
@@ -79,7 +92,7 @@ input:checked + .slider:before {
 
 /* PANTALLA DONDE SE MUESTRAN LOS RESULTADOS DE LAS OPERACIONES */
 .results {
-  background-color: #191f32;
+  background-color: #121730;
   height: 100px;
   display: flex;
   flex-direction: column;
