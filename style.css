@@ -102,15 +102,6 @@ input:checked + .slider:before {
   border-radius: 8px;
 }
 
-button {
-  width: 90px;
-  height: 50px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: #eae4dd;
-}
-
 .keyboard__space {
   display: flex;
   gap: 20px;
@@ -127,6 +118,42 @@ button {
 }
 
 .grey-background {
-  background-color: #647298;
+  background-color:  #ffbb00;
   color: white;
 }
+
+button {
+  padding: 0.1em 0.25em;
+  width: 7.5em;
+  height: 4em;
+  background-color: #ffbb00;
+  border-radius: 0.3em;
+  font-size: 12px;
+}
+
+button span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0.4em;
+  width: 4.45em;
+  height: 2.5em;
+  background-color: #fcfcbc;
+  border-radius: 0.2em;
+  font-size: 1.5em;
+  color: #000000;
+  box-shadow: 0 0.4em 0.1em 0.019em #ffffff;
+}
+
+button span:hover {
+  transition: all 0.5s;
+  transform: translate(0, 0.4em);
+  box-shadow: 0 0 0 0 #ffd000;
+}
+
+button span:not(hover) {
+  transition: all 1s;
+}
+
+
