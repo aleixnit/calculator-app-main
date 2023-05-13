@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  border: 1px solid red;
+}
+
+body {
+  color: rgb(255, 0, 0);
+  background-color: #3b4664;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+/* CONTENEDOR DE TODA LA CALCULADORA */
+.container {
+  width: 500px;
+}
+
+/* TOGGLE PARA EDITAR EL CAMBIO DE TEMA */
+.toggleTheme {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+
+/* PANTALLA DONDE SE MUESTRAN LOS RESULTADOS DE LAS OPERACIONES */
+.results {
+  background-color: #191f32 ;
+  height: 100px;
+}
+
+/* NÚMEROS Y SIMBOLOS DE OPERACIONES */
+.keyboard {
+  background-color: #252d44 ;
+  height: 400px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button {
+    width: 90px;
+    height: 50px;
+}
+
+.keyboard__space {
+    display: flex;
+    gap: 20px;
+}
+
+.reset,
+.equal {
+    width: 200px ;
+}
