@@ -19,6 +19,18 @@ body {
   width: 500px;
 }
 
+/* tituloooooo */ 
+.titulo {
+  font-size: 40px;
+  font-weight: 700;
+  background: linear-gradient(to left, rgb(127, 202, 253), rgb(245, 252, 65));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* TOGGLE PARA EDITAR EL CAMBIO DE TEMA ***************************************************************/
 .toggleTheme {
   display: flex;
@@ -56,7 +68,7 @@ body {
 
 /* The slider ****************************************************/
 .slider {
-  --background: #000000;
+  --background: #ffffff;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -76,13 +88,13 @@ body {
   border-radius: 50%;
   left: 10%;
   bottom: 15%;
-  box-shadow: inset 8px -4px 0px 0px #fff000;
+  box-shadow: inset 8px -4px 0px 0px #152b7d;
   background: var(--background);
   transition: .5s;
 }
 
 input:checked + .slider {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 input:checked + .slider:before {

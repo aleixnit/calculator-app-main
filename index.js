@@ -21,6 +21,8 @@ colorToggle.addEventListener("change", () => {
     keyboard.classList.remove("keyboard-light");
   }
 });
+
+
 //Recorro todos los botones con el metodo 'for Each', para ejecutar la lógica correspondiente cuando se hace 'click' a un botón.
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
