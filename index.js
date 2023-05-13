@@ -3,6 +3,7 @@ const result = document.querySelector("#result");
 let numero1 = null;
 let numero2 = null;
 let operador = null;
+let resetearPantalla = false;
 
 //Recorro todos los botones con el metodo 'for Each', para ejecutar la lógica correspondiente cuando se hace 'click' a un botón.
 buttons.forEach((button) => {
@@ -18,6 +19,7 @@ buttons.forEach((button) => {
         numero1 = null;
         numero2 = null;
         operador = null;
+        resetearPantalla = false;
         // Reiniciar el resultado y limpiar todo
         break;
       case "DEL":
@@ -32,37 +34,64 @@ buttons.forEach((button) => {
             const resultadoOperacion = calcular(numero1, operador, numero2);
             result.textContent = resultadoOperacion;
             numero1 = resultadoOperacion;
-            numero2 = null;
             operador = null;
+            numero2 = null;
+            resetearPantalla = true;
           }
         break;
       case "+":
-        if (numero1 === null) {
-            numero1 = Number(result.textContent);
-            operador = "+";
-            result.textContent = "";
+        if (numero1 !== null && numero2 !== null) {
+            const resultado = calcular(numero1, operador, numero2);
+            result.textContent = resultado;
+            numero1 = resultado;
+            numero2 = null;
           }
+          numero1 = Number(result.textContent);
+          operador = buttonText;
+          result.textContent = "";
+          break;
         // result.textContent = "";
         // result.textContent += buttonText;
         break;
       case "-":
-        if (numero1 === null) {
-            numero1 = Number(result.textContent);
-            operador = "-";
-            result.textContent = "";
+        if (numero1 !== null && numero2 !== null) {
+            const resultado = calcular(numero1, operador, numero2);
+            result.textContent = resultado;
+            numero1 = resultado;
+            numero2 = null;
           }
+          numero1 = Number(result.textContent);
+          operador = buttonText;
+          result.textContent = "";
         break;
       case "x":
-        if (numero1 === null) {
-            numero1 = Number(result.textContent);
-            operador = "*";
-            result.textContent = "";
+        if (numero1 !== null && numero2 !== null) {
+            const resultado = calcular(numero1, operador, numero2);
+            result.textContent = resultado;
+            numero1 = resultado;
+            numero2 = null;
           }
+          numero1 = Number(result.textContent);
+          operador = buttonText;
+          result.textContent = "";
         break;
       case "/":
+        if (numero1 !== null && numero2 !== null) {
+            const resultado = calcular(numero1, operador, numero2);
+            result.textContent = resultado;
+            numero1 = resultado;
+            numero2 = null;
+          }
+          numero1 = Number(result.textContent);
+          operador = buttonText;
+          result.textContent = "";
         break;
       default:
-        result.textContent += buttonText;
+        if (resetearPantalla) {
+            result.textContent = "";
+            resetearPantalla = false;
+          }
+          result.textContent += buttonText;
         // Agregar el número o operador a la barra de resultados
         break;
     }
@@ -80,7 +109,7 @@ function calcular(numero1, operador, numero2) {
         return numero1 * numero2;
         break;
       case "/":
-        return numero1 % numero2;
+        return numero1 / numero2;
         break;
       default:
         return null;
