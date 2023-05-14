@@ -22,7 +22,6 @@ colorToggle.addEventListener("change", () => {
   }
 });
 
-
 //Recorro todos los botones con el metodo 'for Each', para ejecutar la lógica correspondiente cuando se hace 'click' a un botón.
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -47,7 +46,11 @@ buttons.forEach((button) => {
       case "=":
         // Realizar el cálculo y mostrar el resultado
         // Si numero1, operador y result estan
-        if (numero1 !== null && operador !== null && result.textContent !== "") {
+        if (
+          numero1 !== null &&
+          operador !== null &&
+          result.textContent !== ""
+        ) {
           numero2 = Number(result.textContent);
           const operacionRealizada = `${numero2}`;
           const resultadoOperacion = calcular(numero1, operador, numero2);
@@ -73,6 +76,13 @@ buttons.forEach((button) => {
         break;
       case "/":
         operacion(buttonText);
+        break;
+      case ".":
+        // Verificar si el resultado actual ya contiene un punto decimal
+        if (!result.textContent.includes(".")) {
+          // Agregar el punto decimal al resultado actual
+          result.textContent += buttonText;
+        }
         break;
       default:
         if (resetearPantalla) {
@@ -110,11 +120,16 @@ function operacion(buttonText) {
     operador = buttonText;
     mostrarOperaciones.textContent = numero1 + " " + operador + " ";
     result.textContent = "";
-  } else if (numero1 !== null && operador !== null && result.textContent !== "") {
+  } else if (
+    numero1 !== null &&
+    operador !== null &&
+    result.textContent !== ""
+  ) {
     numero2 = Number(result.textContent);
     const operacionRealizada = `${numero1} ${operador} ${numero2}`;
     const resultadoOperacion = calcular(numero1, operador, numero2);
-    mostrarOperaciones.textContent += operacionRealizada + " " + buttonText + " ";
+    mostrarOperaciones.textContent +=
+      operacionRealizada + " " + buttonText + " ";
     numero1 = resultadoOperacion;
     operador = buttonText;
     result.textContent = "";
